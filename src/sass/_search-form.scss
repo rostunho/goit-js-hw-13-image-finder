@@ -1,0 +1,26 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100px;
+
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(0, 113, 179),
+    rgb(0, 113, 179) 20px,
+    rgb(0, 123, 194) 20px,
+    rgb(0, 123, 194) 40px
+  );
+}
+
+.search-form input {
+  width: 250px;
+  height: 35px;
+
+  padding-left: 10px;
+
+  font-size: 20px;
+
+  border: 0;
+}
