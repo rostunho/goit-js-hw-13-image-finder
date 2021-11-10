@@ -8,11 +8,18 @@ export default class LoadMoreBtn {
   getRefs(selector) {
     const refs = {
       button: document.querySelector(selector),
-      label: this.refs.button.querySelector('.label'),
-      spinner: this.refs.button.querySelector('.spinner'),
+      label: document.querySelector('.label'),
+      spinner: document.querySelector('.spinner'),
     };
 
     return refs;
+  }
+
+  smoothScroll() {
+    this.refs.button.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+    });
   }
 
   enable() {
@@ -22,7 +29,7 @@ export default class LoadMoreBtn {
   }
 
   disable() {
-    this.refs.button.disable = true;
+    this.refs.button.disabled = true;
     this.refs.label.textContent = 'loading';
     this.refs.spinner.classList.remove('.is-hidden');
   }
