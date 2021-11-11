@@ -1,3 +1,5 @@
+import { noticeError } from './notice';
+
 const BASE_URL = 'https://pixabay.com/api';
 const API_KEY = '24252951-ddd51d265365deb12d4398809';
 
