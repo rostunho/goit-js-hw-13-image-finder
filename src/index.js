@@ -8,6 +8,7 @@ import infinityScroll from './js/infinity-scroll';
 import openLightbox from './js/lightbox';
 import { noticeInfo, noticeError } from './js/notice';
 
+// operations
 const picApiServise = new PicApiServise();
 const loadMoreBtn = new LoadMoreBtn({ selector: '.load-more-button', hidden: true });
 
@@ -17,12 +18,11 @@ refs.picturesContainer.addEventListener('click', openLightbox);
 
 infinityScroll('.anchor', fetchImage);
 
+// functions
 function onSearch(event) {
   event.preventDefault();
   picApiServise.query = event.target.value;
-  //   if (picApiServise.query === '') {
-  //     return alert('Please enter your request.');
-  //   }
+
   if (picApiServise.query.trim() === '') {
     clearPictureContainer();
     loadMoreBtn.hide();
@@ -38,6 +38,7 @@ function onSearch(event) {
 
 function fetchImage() {
   loadMoreBtn.disable();
+
   if (picApiServise.query.trim() !== '') {
     picApiServise.fetchPicture().then(pictures => {
       if (pictures.length === 0) {
