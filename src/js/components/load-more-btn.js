@@ -31,7 +31,7 @@ export default class LoadMoreBtn {
   disable() {
     this.refs.button.disabled = true;
     this.refs.label.textContent = 'loading';
-    this.refs.spinner.classList.remove('.is-hidden');
+    this.refs.spinner.classList.remove('is-hidden');
   }
 
   show() {

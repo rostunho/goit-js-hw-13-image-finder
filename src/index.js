@@ -8,12 +8,14 @@ import infinityScroll from './js/infinity-scroll';
 import openLightbox from './js/lightbox';
 
 const picApiServise = new PicApiServise();
-const loadMoreBtn = new LoadMoreBtn({ selector: '.load-more-button', hidden: false });
-loadMoreBtn.hide();
+const loadMoreBtn = new LoadMoreBtn({ selector: '.load-more-button', hidden: true });
+// loadMoreBtn.hide();
 
 refs.searchForm.addEventListener('input', debounce(onSearch, 500));
 loadMoreBtn.refs.button.addEventListener('click', fetchImage);
 refs.picturesContainer.addEventListener('click', openLightbox);
+
+infinityScroll('.anchor', fetchImage);
 
 function onSearch(event) {
   event.preventDefault();
@@ -51,7 +53,3 @@ function renderGalleryMarkup(pictures) {
 function clearPictureContainer() {
   refs.picturesContainer.innerHTML = '';
 }
-
-// const observer = new IntersectionObserver(fetchImage, { rootMargin: '100px' });
-// observer.observe(document.querySelector('.anchor'));
-infinityScroll('.anchor', fetchImage);
