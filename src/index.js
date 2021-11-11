@@ -42,7 +42,6 @@ function fetchImage() {
   if (picApiServise.query.trim() !== '') {
     picApiServise.fetchPicture().then(pictures => {
       if (pictures.length === 0) {
-        noticeError();
         loadMoreBtn.hide();
         return;
       }
