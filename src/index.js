@@ -5,6 +5,7 @@ import LoadMoreBtn from './js/components/load-more-btn';
 import pictureCardTmp from './templates/picture-card.hbs';
 import debounce from 'lodash.debounce';
 import infinityScroll from './js/infinity-scroll';
+import openLightbox from './js/lightbox';
 
 const picApiServise = new PicApiServise();
 const loadMoreBtn = new LoadMoreBtn({ selector: '.load-more-button', hidden: false });
@@ -12,6 +13,7 @@ loadMoreBtn.hide();
 
 refs.searchForm.addEventListener('input', debounce(onSearch, 500));
 loadMoreBtn.refs.button.addEventListener('click', fetchImage);
+refs.picturesContainer.addEventListener('click', openLightbox);
 
 function onSearch(event) {
   event.preventDefault();
@@ -21,6 +23,7 @@ function onSearch(event) {
   //   }
   if (picApiServise.query.trim() === '') {
     clearPictureContainer();
+    loadMoreBtn.hide();
     return;
   }
 
