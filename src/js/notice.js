@@ -14,7 +14,7 @@ function noticeInfo() {
 
 function noticeError() {
   error({
-    text: 'Please enter CORRECT search.',
+    text: 'Please enter NEW search.',
     shadow: true,
     width: '450px',
     minHeight: '20px',
